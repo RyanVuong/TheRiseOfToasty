@@ -62,8 +62,7 @@ crashlytics-build.properties
 .idea
 
 # Unity complications
-*.meta
-*/UserSettings/*
+*UserSettings/*
 *.dwlt
 
 # Mac junk
