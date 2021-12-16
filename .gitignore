@@ -61,3 +61,10 @@ crashlytics-build.properties
 # Jet Brains
 .idea
 
+# Unity complications
+*.meta
+*/UserSettings/*
+*.dwlt
+
+# Mac junk
+.DS_Store
