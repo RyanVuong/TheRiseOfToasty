@@ -62,7 +62,6 @@ crashlytics-build.properties
 .idea
 
 # Unity complications
-*.meta
 */UserSettings/*
 *.dwlt
 
