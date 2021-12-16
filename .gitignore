@@ -64,6 +64,7 @@ crashlytics-build.properties
 # Unity complications
 *.meta
 */UserSettings/*
+*.dwlt
 
 # Mac junk
 .DS_Store
