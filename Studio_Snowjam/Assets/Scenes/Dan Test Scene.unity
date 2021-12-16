@@ -482,7 +482,9 @@ GameObject:
   - component: {fileID: 981816957}
   - component: {fileID: 981816960}
   - component: {fileID: 981816959}
+  - component: {fileID: 981816963}
   - component: {fileID: 981816961}
+  - component: {fileID: 981816962}
   m_Layer: 0
   m_Name: Toasty
   m_TagString: Untagged
@@ -623,6 +625,52 @@ MonoBehaviour:
   - {fileID: 118672176}
   - {fileID: 694363908}
   - {fileID: 1090049828}
+--- !u!114 &981816962
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 981816956}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: 32cda0de295414258995010f98445a36, type: 3}
+  m_NotificationBehavior: 0
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents: []
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: Player
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
+--- !u!114 &981816963
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 981816956}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 046729aae570d47f0b117dbab663720c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  grounded: 0
+  speed: 10
+  jumpHeight: 8
+  dashFactor: 3
 --- !u!1 &1089435298
 GameObject:
   m_ObjectHideFlags: 0
