@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -11,7 +9,7 @@ public class PlayerController : MonoBehaviour
 
     private Rigidbody2D rb;
     private Animator animator;
- 
+
     public bool grounded;
     public float speed;
     public float jumpHeight;
@@ -20,6 +18,7 @@ public class PlayerController : MonoBehaviour
     private float originalHorizontal;
     private bool dashDone;
     private int dashedInAir;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -36,21 +35,37 @@ public class PlayerController : MonoBehaviour
         // vertical = 0;
         Vector2 movement = movementVal.Get<Vector2>();
         horizontal = movement.x * speed;
+        
+        // Face left if player start to move left
+        if (movement.x < 0)
+        {
+            GetComponent<SpriteRenderer>().flipX = true;
+        }
+        else if (movement.x > 0) // Else face right.
+        {
+            GetComponent<SpriteRenderer>().flipX = false;
+        }
+
         if (movement.y > 0 && grounded)
         {
             // Debug.Log("JUMPING!");
             vertical = jumpHeight;
         }
-        if(movement.y < 0 && !grounded){
-            if(vertical > 0){
+
+        if (movement.y < 0 && !grounded)
+        {
+            if (vertical > 0)
+            {
                 vertical = 0;
             }
+
             vertical += movement.y * speed;
         }
     }
 
-    void OnDash(){
-        if(Mathf.Abs(horizontal) > 1 && !justDashed && dashedInAir < 2 && !grounded)
+    void OnDash()
+    {
+        if (Mathf.Abs(horizontal) > 1 && !justDashed && dashedInAir < 2 && !grounded)
         {
             justDashed = true;
             originalHorizontal = horizontal;
@@ -58,39 +73,49 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    void OnFastFall(){
-        if(!grounded){
+    void OnFastFall()
+    {
+        if (!grounded)
+        {
             // Debug.Log("Fast Falling");
-            if(vertical > 0){
+            if (vertical > 0)
+            {
                 vertical = 0;
             }
+
             vertical -= 10;
         }
     }
 
     void FixedUpdate()
     {
-        if(justDashed){
-            if(originalHorizontal > 0)
+        if (justDashed)
+        {
+            if (originalHorizontal > 0)
             {
-                horizontal += dashFactor/4;
+                horizontal += dashFactor / 4;
             }
             else
             {
-                horizontal -= dashFactor/4;
+                horizontal -= dashFactor / 4;
             }
         }
+
         rb.velocity = new Vector2(horizontal, vertical <= 0 ? rb.velocity.y + vertical : vertical);
         vertical = 0;
-        if(justDashed){
-            if((originalHorizontal > 0 && horizontal > originalHorizontal + dashFactor) || 
-                (originalHorizontal < 0 && horizontal < originalHorizontal - dashFactor)){
-                    dashDone = true;
+        if (justDashed)
+        {
+            if ((originalHorizontal > 0 && horizontal > originalHorizontal + dashFactor) ||
+                (originalHorizontal < 0 && horizontal < originalHorizontal - dashFactor))
+            {
+                dashDone = true;
             }
         }
-        if(dashDone){
+
+        if (dashDone)
+        {
             Debug.Log("FINISHED DASH");
-            if(originalHorizontal > 0)
+            if (originalHorizontal > 0)
             {
                 horizontal -= (dashFactor + 8);
             }
@@ -98,11 +123,12 @@ public class PlayerController : MonoBehaviour
             {
                 horizontal += (dashFactor + 8);
             }
+
             justDashed = false;
             dashDone = false;
         }
-        
     }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Floor")
