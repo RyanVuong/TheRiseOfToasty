@@ -9,7 +9,6 @@ public class Health : MonoBehaviour
     [SerializeField] private bool isDead;
     
     public Image[] toasts;
-    public Sprite fullToast;
 
     // Start is called before the first frame update
     void Start()
