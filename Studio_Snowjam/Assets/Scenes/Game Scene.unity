@@ -27549,7 +27549,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2812296472607083196, guid: 33d19ba0d9541ed4e8f5ea7851ca9eff, type: 3}
       propertyPath: maxHealth
-      value: 100
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2812296472607083196, guid: 33d19ba0d9541ed4e8f5ea7851ca9eff, type: 3}
       propertyPath: toasts.Array.data[0]
