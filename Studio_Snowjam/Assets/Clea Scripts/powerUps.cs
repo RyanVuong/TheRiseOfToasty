@@ -11,7 +11,7 @@ public class powerUps : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        // Deals damage if it hits the player
+        // heals player 1hp on pickup
         if (collision.gameObject.CompareTag("Player"))
         {
             Debug.Log("pick up");
@@ -20,11 +20,8 @@ public class powerUps : MonoBehaviour
         Destroy(gameObject);
     }
 
-    // public void setAttack()
-    // {
-    //     ref int CH = ref health.CurrentHealth();
-    //     int attack = playerprojectilemovement.GetAttackDmg();
-    //     playerprojectilemovement.SetAttackDmg(attack + CH - health.MaxHealth());
-    //
-    // }
+    // If curHealth = maxHealth then add multiplyer to score
+    // Multiplyer = to curHealth - maxHelth
+
+
 }
