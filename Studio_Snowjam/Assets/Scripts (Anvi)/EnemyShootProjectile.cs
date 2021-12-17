@@ -4,13 +4,14 @@ using UnityEngine;
 
 public class EnemyShootProjectile : MonoBehaviour
 {
-    [SerializeField] float timeDuration = 3f;
-    [SerializeField] float speed = 5f;
+    [SerializeField] float timeDuration = 2f;
+    [SerializeField] float desiredDistance = 15f;
     [SerializeField] GameObject projectile;
 
     [SerializeField] GameObject player;
     
     float timeElapsed = 0f;
+    bool startShooting = false;
 
     // Start is called before the first frame update
     void Start()
@@ -21,11 +22,24 @@ public class EnemyShootProjectile : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        timeElapsed += Time.deltaTime;
-        if (timeElapsed >= timeDuration)
+        if (Vector2.Distance(transform.position, player.transform.position) <= desiredDistance)
         {
-            shootProjectile();
+            startShooting = true;
+        }
+        else
+        {
+            startShooting = false;
             timeElapsed = 0f;
+        }
+
+        if (startShooting)
+        {
+            timeElapsed += Time.deltaTime;
+            if (timeElapsed >= timeDuration)
+            {
+                shootProjectile();
+                timeElapsed = 0f;
+            }
         }
     }
 
@@ -34,6 +48,7 @@ public class EnemyShootProjectile : MonoBehaviour
         GameObject newProjectile = Instantiate(projectile, gameObject.transform.position, Quaternion.identity);
         Physics2D.IgnoreCollision(newProjectile.GetComponent<Collider2D>(), GetComponent<Collider2D>());
 
+        /*
         // determine positions of player and projectile
         Vector2 playerPosition = player.transform.position;
         Vector2 projectilePosition = newProjectile.transform.position;
@@ -43,5 +58,6 @@ public class EnemyShootProjectile : MonoBehaviour
 
         Rigidbody2D rb = newProjectile.GetComponent<Rigidbody2D>();
         rb.AddForce(projectileDirection * speed, ForceMode2D.Impulse);
+        */
     }
 }
