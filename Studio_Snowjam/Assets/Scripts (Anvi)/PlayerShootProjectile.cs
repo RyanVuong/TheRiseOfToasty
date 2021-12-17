@@ -28,6 +28,7 @@ public class PlayerShootProjectile : MonoBehaviour
 
     public void OnShoot()
     {
+        GetComponent<Animator>().SetTrigger("Attack");
         // create new projectile
         GameObject newProjectile = Instantiate(projectile, gameObject.transform.position, Quaternion.identity);
         Physics2D.IgnoreCollision(newProjectile.GetComponent<Collider2D>(), GetComponent<Collider2D>());
@@ -55,7 +56,7 @@ public class PlayerShootProjectile : MonoBehaviour
     void OnMove(InputValue movementVal)
     {
         Vector2 movement = movementVal.Get<Vector2>();
-
+        
         // Shoot left if player last moved left
         if (movement.x < 0)
         {
