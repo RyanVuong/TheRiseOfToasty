@@ -67,3 +67,5 @@ crashlytics-build.properties
 
 # Mac junk
 .DS_Store
+
+Studio_Snowjam/UserSettings/EditorUserSettings.asset
