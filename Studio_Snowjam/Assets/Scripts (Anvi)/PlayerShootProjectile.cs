@@ -8,7 +8,11 @@ public class PlayerShootProjectile : MonoBehaviour
     [SerializeField] GameObject projectile;
     [SerializeField] float speed = 5f;
 
+    public AudioSource PlayerFire;
+
+
     bool shootRight = true;
+    
 
     // Start is called before the first frame update
     void Start()
@@ -38,6 +42,12 @@ public class PlayerShootProjectile : MonoBehaviour
         else
         {
             rb.AddForce(new Vector2(-1, 0) * speed, ForceMode2D.Impulse);
+        }
+
+        //Sound Effects
+        if(!PlayerFire.isPlaying)
+        {
+            PlayerFire.Play();
         }
     }
 
