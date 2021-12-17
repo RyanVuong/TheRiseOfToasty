@@ -6,43 +6,64 @@ public class Health : MonoBehaviour
 {
     [SerializeField] private int curHealth;
     [SerializeField] private int maxHealth = 3;
+    [SerializeField] private bool startMaxHealth = true;
+    [SerializeField] private bool isNPC = true;
     [SerializeField] private bool isDead;
-    
+
     public Image[] toasts;
 
     // Start is called before the first frame update
     void Start()
     {
-        curHealth = maxHealth;
-        isDead = false;
+        if (startMaxHealth)
+        {
+            curHealth = maxHealth;
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        for (var i = 0; i < toasts.Length; i++)
+        // Only for the PC: Update UI health to curHealth
+        if (!isNPC)
         {
-            toasts[i].enabled = i < curHealth;
+            for (var i = 0; i < toasts.Length; i++)
+            {
+                toasts[i].enabled = i < curHealth;
+            }
         }
     }
 
+    // Damages a player or NPC
     public void DamagePlayer(int damage)
     {
+        // Updates health
         curHealth -= damage;
         
-        if (curHealth > 3)
+        // Prevents health over maximum
+        if (curHealth > maxHealth)
         {
-            curHealth = 3;
+            curHealth = maxHealth;
         } 
+        // Sets dead if character dies
         else if (curHealth < 1)
         {
             isDead = true;
         }
-        
+        // Action
         if (isDead)
         {
-            toasts[0].enabled = false;
-            // TODO: Death animation? 
+            if (!isNPC)
+            {
+                toasts[0].enabled = false; 
+                // TODO: Death animation? 
+            }
         }
+    }
+
+    // Heals a player or NPC
+    public void HealPlayer(int health)
+    {
+        DamagePlayer(-health);
     }
 }
