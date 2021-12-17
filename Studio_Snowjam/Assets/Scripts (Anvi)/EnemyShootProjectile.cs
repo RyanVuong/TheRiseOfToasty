@@ -9,6 +9,8 @@ public class EnemyShootProjectile : MonoBehaviour
     [SerializeField] GameObject projectile;
 
     [SerializeField] GameObject player;
+
+    public AudioSource GunSounds;
     
     float timeElapsed = 0f;
     bool startShooting = false;
@@ -48,6 +50,10 @@ public class EnemyShootProjectile : MonoBehaviour
         GameObject newProjectile = Instantiate(projectile, gameObject.transform.position, Quaternion.identity);
         Physics2D.IgnoreCollision(newProjectile.GetComponent<Collider2D>(), GetComponent<Collider2D>());
 
+        if (!GunSounds.isPlaying)
+        {
+            GunSounds.Play();
+        }
         /*
         // determine positions of player and projectile
         Vector2 playerPosition = player.transform.position;
