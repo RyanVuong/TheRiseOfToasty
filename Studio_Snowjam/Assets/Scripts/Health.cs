@@ -16,7 +16,6 @@ public class Health : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
         if (startMaxHealth)
         {
             curHealth = maxHealth;
@@ -64,11 +63,14 @@ public class Health : MonoBehaviour
             
             if (!isNPC)
             {
+                // Remove last toast icon on screen
                 toasts[0].enabled = false;
+                
+                // Destroys Toasty
                 Destroy(gameObject);
-                // GameObject.Find("Canvas").Get
-                // TODO: Death animation? 
-                // TODO: Game over
+                
+                // Turns on the game over screen
+                GameObject.Find("Canvas").transform.GetChild(0).gameObject.SetActive(true);
             }
         }
     }
