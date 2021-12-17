@@ -35,6 +35,7 @@ public class Boss2_VROOM : StateMachineBehaviour
         initScale = animator.transform.localScale;
         movingLeft = true;
         grounded = true;
+        animator.GetComponent<ToasterSFX>().PlayToasterVroom();
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
@@ -76,11 +77,23 @@ public class Boss2_VROOM : StateMachineBehaviour
         
     }
 
+
     void Move(Animator animator, Direction dir)
     {
+        if (timeElapsed <= 2.0f)
+            return;
         // Set animator boolean for movement
         //animator.SetBool("isRunning", true);
-
+        float slowdown = 1;
+        /*
+        float distToEdge = Mathf.Min(Mathf.Abs(animator.transform.position.x - leftEdge[0]), Mathf.Abs(animator.transform.position.x - rightEdge[0]));
+        if(distToEdge < 3.0f)
+        {
+            Debug.Log(distToEdge);
+            slowdown = Mathf.Max(distToEdge / 3.0f, 0.5f);
+        }
+        */
+ 
         switch (dir)
         {
             case Direction.left:
@@ -93,8 +106,8 @@ public class Boss2_VROOM : StateMachineBehaviour
                 break;
         }
         if (timeElapsed % 3 < 0.1 && grounded)
-            rb.velocity = new Vector2(speed * (int)dir, rb.velocity.y + jumpHeight);
+            rb.velocity = new Vector2(slowdown * speed * (int)dir, rb.velocity.y + jumpHeight);
         else
-            rb.velocity = new Vector2(speed * (int)dir, rb.velocity.y);
+            rb.velocity = new Vector2(slowdown * speed * (int)dir, rb.velocity.y);
     }
 }

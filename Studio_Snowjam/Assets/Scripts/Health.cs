@@ -82,7 +82,7 @@ public class Health : MonoBehaviour
         Damage(-health);
     }
 
-    public float getCurHealth()
+    public int getCurHealth()
     {
         return curHealth;
     }

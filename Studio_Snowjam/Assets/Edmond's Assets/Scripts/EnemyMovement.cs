@@ -35,6 +35,11 @@ public class EnemyMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        GetComponent<Animator>().SetInteger("Health", GetComponent<Health>().getCurHealth());
+        if (GetComponent<Health>().getCurHealth() < 3)
+        {
+            canJump = false;
+        }
         //Debug.Log(rb.velocity.x);
         if (movingLeft)
         {
@@ -96,11 +101,11 @@ public class EnemyMovement : MonoBehaviour
         {
             case Direction.left:
                 // Keep initial orientation of sprite is moving left
-                transform.localScale = new Vector3(Mathf.Abs(initScale.x), initScale.y, initScale.z);
+                transform.localScale = new Vector3(Mathf.Abs(initScale.x) * -1, initScale.y, initScale.z);
                 break;
             case Direction.right:
                 // Otherwise, we flip the sprite
-                transform.localScale = new Vector3(Mathf.Abs(initScale.x) * -1, initScale.y, initScale.z);
+                transform.localScale = new Vector3(Mathf.Abs(initScale.x), initScale.y, initScale.z);
                 break;
         }
         

@@ -30,7 +30,7 @@ public class BossEruptionMovement : MonoBehaviour
         // move projectile
         float step = speed * Time.deltaTime;
         //transform.position = Vector2.MoveTowards(transform.position, target, step);
-
+        transform.Rotate(0.0f, 0.0f, 180.0f * Time.deltaTime);
         if (count < 1.0f)
         {
             count += Random.Range(0.3f, 0.5f) * Time.deltaTime;

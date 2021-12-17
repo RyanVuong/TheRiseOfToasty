@@ -30,11 +30,13 @@ public class Boss_Shoot : MonoBehaviour
 
     IEnumerator ShootTwo()
     {
+        GetComponent<ToasterSFX>().PlayToasterShoot();
         GameObject newProjectile = Instantiate(projectile, gameObject.transform.position, Quaternion.identity);
         Physics2D.IgnoreCollision(newProjectile.GetComponent<Collider2D>(), GetComponent<Collider2D>());
 
         yield return new WaitForSeconds(0.3f);
 
+        GetComponent<ToasterSFX>().PlayToasterShoot();
         newProjectile = Instantiate(projectile, gameObject.transform.position, Quaternion.identity);
         Physics2D.IgnoreCollision(newProjectile.GetComponent<Collider2D>(), GetComponent<Collider2D>());
     }
@@ -46,16 +48,19 @@ public class Boss_Shoot : MonoBehaviour
 
     IEnumerator ShootThree()
     {
+        GetComponent<ToasterSFX>().PlayToasterShoot();
         GameObject newProjectile = Instantiate(projectile, gameObject.transform.position, Quaternion.identity);
         Physics2D.IgnoreCollision(newProjectile.GetComponent<Collider2D>(), GetComponent<Collider2D>());
 
         yield return new WaitForSeconds(0.2f);
 
+        GetComponent<ToasterSFX>().PlayToasterShoot();
         newProjectile = Instantiate(projectile, gameObject.transform.position, Quaternion.identity);
         Physics2D.IgnoreCollision(newProjectile.GetComponent<Collider2D>(), GetComponent<Collider2D>());
 
         yield return new WaitForSeconds(0.2f);
 
+        GetComponent<ToasterSFX>().PlayToasterShoot();
         newProjectile = Instantiate(projectile, gameObject.transform.position, Quaternion.identity);
         Physics2D.IgnoreCollision(newProjectile.GetComponent<Collider2D>(), GetComponent<Collider2D>());
     }
@@ -70,7 +75,7 @@ public class Boss_Shoot : MonoBehaviour
     {
         for(int i = 0; i < numEruptions; i++)
         {
-            Debug.Log(i);
+            GetComponent<ToasterSFX>().PlayToasterFire();
             eruptions[i] = Instantiate(Eruptprojectile, gameObject.transform.position, Quaternion.identity);
             Physics2D.IgnoreCollision(eruptions[i].GetComponent<Collider2D>(), GetComponent<Collider2D>());
             yield return new WaitForSeconds(Random.Range(0.15f, 0.3f));

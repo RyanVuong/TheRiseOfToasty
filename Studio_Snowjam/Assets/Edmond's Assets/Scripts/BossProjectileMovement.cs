@@ -6,7 +6,7 @@ public class BossProjectileMovement : MonoBehaviour
 {
     float lifetime = 0f;
     [SerializeField] float maxLifetime = 15f;
-    [SerializeField] float speed = 8f;
+    [SerializeField] float speed = 4f;
     GameObject player;
     Vector3 target;
 
@@ -26,6 +26,7 @@ public class BossProjectileMovement : MonoBehaviour
         // move projectile
         float step = speed * Time.deltaTime;
         transform.position += normalizeDirection * speed * Time.deltaTime;
+        transform.Rotate(0.0f, 0.0f, 180.0f * Time.deltaTime);
 
         // destroy projectile after exceeding lifetime (if it did not hit anything)
         lifetime += Time.deltaTime;
