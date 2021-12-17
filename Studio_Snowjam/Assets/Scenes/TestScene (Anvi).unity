@@ -1142,7 +1142,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeDuration: 3
-  speed: 5
+  desiredDistance: 15
   projectile: {fileID: 2234868549842379512, guid: 8c3c69ab79fde415caa8e9262e5b77c9, type: 3}
   player: {fileID: 981816956}
 --- !u!1 &2065298425
