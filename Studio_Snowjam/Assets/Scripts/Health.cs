@@ -46,7 +46,7 @@ public class Health : MonoBehaviour
     }
 
     // Damages a player or NPC
-    public void DamagePlayer(int damage)
+    public void Damage(int damage)
     {
         // Updates health
         curHealth -= damage;
@@ -65,17 +65,20 @@ public class Health : MonoBehaviour
         // Action
         if (isDead)
         {
+            Destroy(gameObject);
+            
             if (!isNPC)
             {
                 toasts[0].enabled = false; 
                 // TODO: Death animation? 
+                // TODO: Game over
             }
         }
     }
 
     // Heals a player or NPC
-    public void HealPlayer(int health)
+    public void Heal(int health)
     {
-        DamagePlayer(-health);
+        Damage(-health);
     }
 }

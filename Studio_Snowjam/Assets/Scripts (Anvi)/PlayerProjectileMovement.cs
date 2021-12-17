@@ -6,6 +6,7 @@ public class PlayerProjectileMovement : MonoBehaviour
 {
     float lifetime = 0f;
     [SerializeField] float maxLifetime = 7f;
+    [SerializeField] private int attackDmg = 1;
 
     // Start is called before the first frame update
     void Start()
@@ -25,6 +26,22 @@ public class PlayerProjectileMovement : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
+        // Deals damage if it hits the player
+        if (collision.gameObject.CompareTag("Enemy") || collision.gameObject.CompareTag("EnemyProjectile"))
+        {
+            collision.gameObject.GetComponent<Health>().Damage(attackDmg);
+        }
         Destroy(gameObject);
     }
+
+    int GetAttackDmg()
+    {
+        return attackDmg;
+    }
+    
+    void SetAttackDmg(int dmg)
+    { 
+        attackDmg = dmg;
+    }
+
 }
