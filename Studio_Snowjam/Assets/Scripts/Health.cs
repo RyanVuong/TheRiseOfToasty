@@ -9,9 +9,9 @@ public class Health : MonoBehaviour
     [SerializeField] private bool startMaxHealth = true;
     [SerializeField] private bool isNPC = true;
     [SerializeField] private bool isDead;
-
+    //[SerializeField] private GameObject GameOverSc;
     public Image[] toasts;
-    // public powerUps powerups;
+    
 
     // Start is called before the first frame update
     void Start()
@@ -61,11 +61,13 @@ public class Health : MonoBehaviour
         else if (curHealth < 1)
         {
             isDead = true;
+            //GameOverSc.SetActive(true);
         }
         // Action
         if (isDead)
         {
             Destroy(gameObject);
+            
             
             if (!isNPC)
             {
