@@ -537,6 +537,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: FlyingEnemy
       objectReference: {fileID: 0}
+    - target: {fileID: 8877935439590961540, guid: 4c3b0c2f0a552524f87284014a8cf999, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 764963857}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4c3b0c2f0a552524f87284014a8cf999, type: 3}
 --- !u!4 &246690270 stripped
@@ -2049,6 +2053,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 721915814}
   m_CullTransparentMesh: 1
+--- !u!1 &764963857 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2812296472607083195, guid: 33d19ba0d9541ed4e8f5ea7851ca9eff, type: 3}
+  m_PrefabInstance: {fileID: 2812296472440575979}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &822655406
 GameObject:
   m_ObjectHideFlags: 0
@@ -2462,6 +2471,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: FlyingEnemy (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 8877935439590961540, guid: 4c3b0c2f0a552524f87284014a8cf999, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 764963857}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4c3b0c2f0a552524f87284014a8cf999, type: 3}
 --- !u!4 &1234225873 stripped
