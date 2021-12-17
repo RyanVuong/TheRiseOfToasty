@@ -6,7 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/MainMenu.unity
+    guid: 5adf2c888ead4dd449ef19ed37a8a733
+  - enabled: 1
     path: Assets/Scenes/TestScene (Anvi).unity
     guid: 2cda990e2423bbf4892e6590ba056729
-  m_configObjects:
-    com.unity.input.settings: {fileID: 11400000, guid: 7ddc37dd036f9493d99a1da2f7e794a8, type: 2}
+  m_configObjects: {}

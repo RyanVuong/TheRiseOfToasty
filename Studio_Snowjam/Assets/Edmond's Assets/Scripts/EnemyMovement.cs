@@ -35,17 +35,22 @@ public class EnemyMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(rb.velocity.x);
+        GetComponent<Animator>().SetInteger("Health", GetComponent<Health>().getCurHealth());
+        if (GetComponent<Health>().getCurHealth() < 3)
+        {
+            canJump = false;
+        }
+        //Debug.Log(rb.velocity.x);
         if (movingLeft)
         {
             // If we hit the boundary, have the enemy switch direction
-            if (transform.position.x < leftEdge[0])
+            if (transform.position.x < leftEdge[0] && grounded)
                 movingLeft = false;
             Move(Direction.left);
         }
         else
         {
-            if (transform.position.x > rightEdge[0])
+            if (transform.position.x > rightEdge[0] && grounded)
                 movingLeft = true;
             Move(Direction.right);
         }
@@ -96,11 +101,11 @@ public class EnemyMovement : MonoBehaviour
         {
             case Direction.left:
                 // Keep initial orientation of sprite is moving left
-                transform.localScale = new Vector3(Mathf.Abs(initScale.x), initScale.y, initScale.z);
+                transform.localScale = new Vector3(Mathf.Abs(initScale.x) * -1, initScale.y, initScale.z);
                 break;
             case Direction.right:
                 // Otherwise, we flip the sprite
-                transform.localScale = new Vector3(Mathf.Abs(initScale.x) * -1, initScale.y, initScale.z);
+                transform.localScale = new Vector3(Mathf.Abs(initScale.x), initScale.y, initScale.z);
                 break;
         }
         
