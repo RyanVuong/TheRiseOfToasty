@@ -1737,7 +1737,7 @@ GameObject:
   - component: {fileID: 1409843412}
   m_Layer: 0
   m_Name: Ground
-  m_TagString: Untagged
+  m_TagString: Floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -26059,7 +26059,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2812296472607083196, guid: 33d19ba0d9541ed4e8f5ea7851ca9eff, type: 3}
       propertyPath: maxHealth
-      value: 3
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 2812296472607083196, guid: 33d19ba0d9541ed4e8f5ea7851ca9eff, type: 3}
       propertyPath: toasts.Array.data[0]
