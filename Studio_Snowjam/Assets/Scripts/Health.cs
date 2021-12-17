@@ -16,22 +16,11 @@ public class Health : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
         if (startMaxHealth)
         {
             curHealth = maxHealth;
         }
         GetComponent<Animator>().SetInteger("Health", curHealth);
-    }
-
-    public ref int CurrentHealth()
-    {
-        return ref curHealth;
-    }
-
-    public ref int MaxHealth()
-    {
-        return ref maxHealth;
     }
 
     // Update is called once per frame
@@ -56,7 +45,7 @@ public class Health : MonoBehaviour
         // Prevents health over maximum
         if (curHealth > maxHealth)
         {
-//            powerups.setAttack();
+            // powerups.setAttack();
             curHealth = maxHealth;
         } 
 
@@ -74,9 +63,14 @@ public class Health : MonoBehaviour
             
             if (!isNPC)
             {
-                toasts[0].enabled = false; 
-                // TODO: Death animation? 
-                // TODO: Game over
+                // Remove last toast icon on screen
+                toasts[0].enabled = false;
+                
+                // Destroys Toasty
+                Destroy(gameObject);
+                
+                // Turns on the game over screen
+                GameObject.Find("Canvas").transform.GetChild(0).gameObject.SetActive(true);
             }
         }
     }

@@ -148,21 +148,19 @@ public class PlayerController : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Floor")
+        if (collision.gameObject.CompareTag("Floor"))
         {
             grounded = true;
         }
-        if(collision.gameObject.tag == "Enemy"){
+        if(collision.gameObject.CompareTag("Enemy")){
             health.Damage(1);
         }
     }
 
     private void OnCollisionExit2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Floor")
-        {
-            grounded = false;
-            dashedInAir = 0;
-        }
+        if (!collision.gameObject.CompareTag("Floor")) return;
+        grounded = false;
+        dashedInAir = 0;
     }
 }
