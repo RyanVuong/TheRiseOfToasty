@@ -629,7 +629,7 @@ GameObject:
   - component: {fileID: 411632902}
   - component: {fileID: 411632903}
   m_Layer: 0
-  m_Name: Eggnog Powerup
+  m_Name: Powerup
   m_TagString: PowerUp
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -730,7 +730,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: da1afd7a4b52cd34686c3e631c56b280, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 690aac763a754496aae6b744bcca8376, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -2605,8 +2605,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4278190080
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -3083,7 +3083,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2135509527
 RectTransform:
   m_ObjectHideFlags: 0
