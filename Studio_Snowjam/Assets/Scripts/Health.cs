@@ -11,6 +11,7 @@ public class Health : MonoBehaviour
     [SerializeField] private bool isDead;
 
     public Image[] toasts;
+    // public powerUps powerups;
 
     // Start is called before the first frame update
     void Start()
@@ -19,6 +20,16 @@ public class Health : MonoBehaviour
         {
             curHealth = maxHealth;
         }
+    }
+
+    public ref int CurrentHealth()
+    {
+        return ref curHealth;
+    }
+
+    public ref int MaxHealth()
+    {
+        return ref maxHealth;
     }
 
     // Update is called once per frame
@@ -35,7 +46,7 @@ public class Health : MonoBehaviour
     }
 
     // Damages a player or NPC
-    public void DamagePlayer(int damage)
+    public void Damage(int damage)
     {
         // Updates health
         curHealth -= damage;
@@ -43,6 +54,7 @@ public class Health : MonoBehaviour
         // Prevents health over maximum
         if (curHealth > maxHealth)
         {
+//            powerups.setAttack();
             curHealth = maxHealth;
         } 
         // Sets dead if character dies
@@ -53,17 +65,20 @@ public class Health : MonoBehaviour
         // Action
         if (isDead)
         {
+            Destroy(gameObject);
+            
             if (!isNPC)
             {
                 toasts[0].enabled = false; 
                 // TODO: Death animation? 
+                // TODO: Game over
             }
         }
     }
 
     // Heals a player or NPC
-    public void HealPlayer(int health)
+    public void Heal(int health)
     {
-        DamagePlayer(-health);
+        Damage(-health);
     }
 }

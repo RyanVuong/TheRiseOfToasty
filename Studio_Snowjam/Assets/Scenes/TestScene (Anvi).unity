@@ -616,7 +616,7 @@ GameObject:
   - component: {fileID: 981816964}
   m_Layer: 0
   m_Name: Toasty
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1008,9 +1008,10 @@ GameObject:
   - component: {fileID: 2024807221}
   - component: {fileID: 2024807220}
   - component: {fileID: 2024807224}
+  - component: {fileID: 2024807225}
   m_Layer: 0
   m_Name: Enemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1145,6 +1146,24 @@ MonoBehaviour:
   desiredDistance: 15
   projectile: {fileID: 2234868549842379512, guid: 8c3c69ab79fde415caa8e9262e5b77c9, type: 3}
   player: {fileID: 981816956}
+--- !u!114 &2024807225
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2024807219}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5cf3729be9888c44872bedab6ccf5f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  curHealth: 0
+  maxHealth: 3
+  startMaxHealth: 1
+  isNPC: 1
+  isDead: 0
+  toasts: []
 --- !u!1 &2065298425
 GameObject:
   m_ObjectHideFlags: 0

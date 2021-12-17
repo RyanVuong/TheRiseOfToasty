@@ -7,6 +7,7 @@ public class EnemyProjectileMovement : MonoBehaviour
     float lifetime = 0f;
     [SerializeField] float maxLifetime = 7f;
     [SerializeField] float speed = 8f;
+    [SerializeField] private int attackDmg = 1;
 
     GameObject player;
     Vector2 target;
@@ -53,6 +54,22 @@ public class EnemyProjectileMovement : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
+        // Deals damage if it hits the player
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            collision.gameObject.GetComponent<Health>().Damage(attackDmg);
+        }
+
         Destroy(gameObject);
+    }
+    
+    int GetAttackDmg()
+    {
+        return attackDmg;
+    }
+    
+    void SetAttackDmg(int dmg)
+    { 
+        attackDmg = dmg;
     }
 }
