@@ -24,16 +24,6 @@ public class Health : MonoBehaviour
         GetComponent<Animator>().SetInteger("Health", curHealth);
     }
 
-    public ref int CurrentHealth()
-    {
-        return ref curHealth;
-    }
-
-    public ref int MaxHealth()
-    {
-        return ref maxHealth;
-    }
-
     // Update is called once per frame
     void Update()
     {
@@ -56,7 +46,7 @@ public class Health : MonoBehaviour
         // Prevents health over maximum
         if (curHealth > maxHealth)
         {
-//            powerups.setAttack();
+            // powerups.setAttack();
             curHealth = maxHealth;
         } 
 
@@ -74,7 +64,9 @@ public class Health : MonoBehaviour
             
             if (!isNPC)
             {
-                toasts[0].enabled = false; 
+                toasts[0].enabled = false;
+                Destroy(gameObject);
+                // GameObject.Find("Canvas").Get
                 // TODO: Death animation? 
                 // TODO: Game over
             }
