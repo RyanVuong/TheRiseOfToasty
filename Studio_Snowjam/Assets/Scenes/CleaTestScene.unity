@@ -238,7 +238,7 @@ GameObject:
   - component: {fileID: 162537058}
   - component: {fileID: 162537057}
   - component: {fileID: 162537056}
-  - component: {fileID: 162537055}
+  - component: {fileID: 162537060}
   m_Layer: 0
   m_Name: Toasty
   m_TagString: Player
@@ -246,22 +246,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &162537055
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 162537054}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1ebe0ab2e8c53408eb651a137f67c2f0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  grounded: 1
-  speed: 3
-  jumpHeight: 0
-  dashFactor: 0
 --- !u!50 &162537056
 Rigidbody2D:
   serializedVersion: 4
@@ -376,6 +360,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &162537060
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 162537054}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83a169ce157f82a4786a47f6ea4f4c5e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  grounded: 0
+  speed: 0
+  jumpHeight: 0
+  dashFactor: 0
 --- !u!1 &334751049
 GameObject:
   m_ObjectHideFlags: 0
