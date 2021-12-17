@@ -16,6 +16,7 @@ public class Health : MonoBehaviour
     {
         curHealth = maxHealth;
         isDead = false;
+        isNPC = true;
     }
 
     // Update is called once per frame
