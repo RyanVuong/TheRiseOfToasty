@@ -11,7 +11,7 @@ public class Health : MonoBehaviour
     [SerializeField] private bool isDead;
 
     public Image[] toasts;
-    public powerUps powerups;
+    // public powerUps powerups;
 
     // Start is called before the first frame update
     void Start()

@@ -20,11 +20,11 @@ public class powerUps : MonoBehaviour
         Destroy(gameObject);
     }
 
-    //public void setAttack()
-    //{
-     //   ref int CH = ref health.CurrentHealth();
-      //  int attack = playerprojectilemovement.GetAttackDmg();
-      //  playerprojectilemovement.SetAttackDmg(attack + CH - health.MaxHealth());
-
-   // }
+    // public void setAttack()
+    // {
+    //     ref int CH = ref health.CurrentHealth();
+    //     int attack = playerprojectilemovement.GetAttackDmg();
+    //     playerprojectilemovement.SetAttackDmg(attack + CH - health.MaxHealth());
+    //
+    // }
 }
