@@ -1191,7 +1191,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &591523226
 Transform:
   m_ObjectHideFlags: 0
@@ -20671,7 +20671,7 @@ CompositeCollider2D:
   m_GameObject: {fileID: 1409843408}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: e256b6d8d2fca4fa1bde527727afecf7, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -26083,7 +26083,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2812296472607083197, guid: 33d19ba0d9541ed4e8f5ea7851ca9eff, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.91
+      value: -1.81
       objectReference: {fileID: 0}
     - target: {fileID: 2812296472607083197, guid: 33d19ba0d9541ed4e8f5ea7851ca9eff, type: 3}
       propertyPath: m_LocalPosition.z
