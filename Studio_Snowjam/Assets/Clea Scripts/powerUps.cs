@@ -1,31 +1,30 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+[System.Serializable]
 
 public class powerUps : MonoBehaviour
 {
-    public GameObject pickupEffect;
+    //public GameObject pickupEffect;
 
-    public Health health;
+    [SerializeField] private int healing = 1;
 
-
-    public void OnTriggerEnter2D(Collider2D collision)
-    { 
-        if (collision.tag == "PowerUp")
-        {
-            Destroy(collision.gameObject);
-            health.DamagePlayer(-1);
-         }
-    }
-
-    public void setAttack()
+    void OnCollisionEnter2D(Collision2D collision)
     {
-        ref int CH = ref health.CurrentHealth();
-        ref int attack = ref <ScriptableObject>.Attack();
-        attack += CH - health.MaxHealth();
-
+        // Deals damage if it hits the player
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            Debug.Log("pick up");
+            collision.gameObject.GetComponent<Health>().Heal(healing);
+        }
+        Destroy(gameObject);
     }
 
+    //public void setAttack()
+    //{
+     //   ref int CH = ref health.CurrentHealth();
+      //  int attack = playerprojectilemovement.GetAttackDmg();
+      //  playerprojectilemovement.SetAttackDmg(attack + CH - health.MaxHealth());
+
+   // }
 }
-
-

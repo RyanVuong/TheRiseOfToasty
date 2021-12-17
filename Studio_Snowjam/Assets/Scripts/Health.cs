@@ -54,7 +54,7 @@ public class Health : MonoBehaviour
         // Prevents health over maximum
         if (curHealth > maxHealth)
         {
-            powerups.setAttack();
+//            powerups.setAttack();
             curHealth = maxHealth;
         } 
         // Sets dead if character dies
