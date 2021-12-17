@@ -6,13 +6,24 @@ public class EnemyProjectileMovement : MonoBehaviour
 {
     float lifetime = 0f;
     [SerializeField] float maxLifetime = 7f;
-    [SerializeField] float speed = 5f;
+    // [SerializeField] float speed = 5f;
+
+    // [SerializeField] public GameObject player;
 
     // Start is called before the first frame update
     void Start()
     {
+        /*
+        // determine positions of player and projectile
+        Vector2 playerPosition = player.transform.position;
+        Vector2 projectilePosition = gameObject.transform.position;
+
+        // find difference in positions to determine direction in which projectile should travel
+        Vector2 projectileDirection = (playerPosition - projectilePosition).normalized;
+
         Rigidbody2D rb = gameObject.GetComponent<Rigidbody2D>();
-        rb.AddForce(Vector2.left * speed, ForceMode2D.Impulse);
+        rb.AddForce(projectileDirection * speed, ForceMode2D.Impulse);
+        */
     }
 
     // Update is called once per frame
