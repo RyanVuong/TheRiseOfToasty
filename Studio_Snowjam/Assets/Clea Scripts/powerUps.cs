@@ -11,10 +11,10 @@ public class powerUps : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        
+        // Deals damage if it hits the player
         if (collision.gameObject.CompareTag("Player"))
         {
-            //Debug.Log("pick up");
+            Debug.Log("pick up");
             collision.gameObject.GetComponent<Health>().Heal(healing);
         }
         Destroy(gameObject);
