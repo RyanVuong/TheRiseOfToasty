@@ -11,6 +11,7 @@ public class Health : MonoBehaviour
     [SerializeField] private bool isDead;
 
     public Image[] toasts;
+    // public powerUps powerups;
 
     // Start is called before the first frame update
     void Start()
@@ -19,6 +20,16 @@ public class Health : MonoBehaviour
         {
             curHealth = maxHealth;
         }
+    }
+
+    public ref int CurrentHealth()
+    {
+        return ref curHealth;
+    }
+
+    public ref int MaxHealth()
+    {
+        return ref maxHealth;
     }
 
     // Update is called once per frame
@@ -43,6 +54,7 @@ public class Health : MonoBehaviour
         // Prevents health over maximum
         if (curHealth > maxHealth)
         {
+//            powerups.setAttack();
             curHealth = maxHealth;
         } 
         // Sets dead if character dies

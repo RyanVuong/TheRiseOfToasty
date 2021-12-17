@@ -34,12 +34,12 @@ public class PlayerProjectileMovement : MonoBehaviour
         Destroy(gameObject);
     }
 
-    int GetAttackDmg()
+    public int GetAttackDmg()
     {
         return attackDmg;
     }
     
-    void SetAttackDmg(int dmg)
+    public void SetAttackDmg(int dmg)
     { 
         attackDmg = dmg;
     }
