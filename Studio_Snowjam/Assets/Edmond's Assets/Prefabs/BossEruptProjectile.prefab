@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 7299362299696805279}
   - component: {fileID: 7299362299696805278}
   - component: {fileID: 7299362299696805345}
-  - component: {fileID: 8836927609761103984}
+  - component: {fileID: 943675480296330055}
   m_Layer: 0
-  m_Name: BossProjectile
+  m_Name: BossEruptProjectile
   m_TagString: EnemyProjectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 2234868549842379512}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.9909787, y: -0.5130147, z: 0.01163}
-  m_LocalScale: {x: 1.2115345, y: 1.2115345, z: 1.2115345}
+  m_LocalScale: {x: 0.6332691, y: 0.6332691, z: 0.6332691}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -124,7 +124,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &8836927609761103984
+--- !u!114 &943675480296330055
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -133,8 +133,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 2234868549842379512}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e0adc295d99e8cd48bc225c05137d398, type: 3}
+  m_Script: {fileID: 11500000, guid: e7b9a3df3c5700846abe8c348a4d433d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxLifetime: 7
-  speed: 8

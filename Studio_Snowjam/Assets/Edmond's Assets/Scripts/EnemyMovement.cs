@@ -35,7 +35,7 @@ public class EnemyMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(rb.velocity.x);
+        //Debug.Log(rb.velocity.x);
         if (movingLeft)
         {
             // If we hit the boundary, have the enemy switch direction

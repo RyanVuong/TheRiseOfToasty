@@ -2,24 +2,37 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Boss1_Attack : StateMachineBehaviour
+public class Boss_Stage1 : StateMachineBehaviour
 {
+    private float duration;
+
+    private float timeElapsed = 0f;
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        
+        duration = Random.Range(3f, 6f);
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        
+        timeElapsed += Time.deltaTime;
+        if(timeElapsed >= duration)
+        {
+            animator.SetTrigger("Attack");
+            timeElapsed = 0.0f;
+        }
+        if(animator.GetComponent<Health>().getCurHealth() < 50.0)
+        {
+            animator.SetTrigger("Stage2");
+        }
     }
 
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        
+        animator.ResetTrigger("Attack");
+        animator.ResetTrigger("Stage2");
     }
 
     // OnStateMove is called right after Animator.OnAnimatorMove()

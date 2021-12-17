@@ -5,16 +5,19 @@ using UnityEngine;
 public class BossProjectileMovement : MonoBehaviour
 {
     float lifetime = 0f;
-    [SerializeField] float maxLifetime = 7f;
+    [SerializeField] float maxLifetime = 15f;
     [SerializeField] float speed = 8f;
     GameObject player;
-    Vector2 target;
+    Vector3 target;
+
+    private Vector3 normalizeDirection;
 
     // Start is called before the first frame update
     void Start()
     {
         player = GameObject.Find("Toasty");
         target = player.transform.position;
+        normalizeDirection = (target - transform.position).normalized;
     }
 
     // Update is called once per frame
@@ -22,12 +25,7 @@ public class BossProjectileMovement : MonoBehaviour
     {
         // move projectile
         float step = speed * Time.deltaTime;
-        transform.position = Vector2.MoveTowards(transform.position, target, step);
-
-        if ((transform.position.x == target.x) && (transform.position.y == target.y))
-        {
-            Destroy(gameObject);
-        }
+        transform.position += normalizeDirection * speed * Time.deltaTime;
 
         // destroy projectile after exceeding lifetime (if it did not hit anything)
         lifetime += Time.deltaTime;
@@ -39,6 +37,7 @@ public class BossProjectileMovement : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        Destroy(gameObject);
+        if (collision.gameObject.tag != "EnemyProjectile")
+            Destroy(gameObject);
     }
 }

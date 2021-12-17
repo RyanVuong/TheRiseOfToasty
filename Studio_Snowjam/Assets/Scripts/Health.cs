@@ -69,4 +69,9 @@ public class Health : MonoBehaviour
     {
         Damage(-health);
     }
+
+    public float getCurHealth()
+    {
+        return curHealth;
+    }
 }
