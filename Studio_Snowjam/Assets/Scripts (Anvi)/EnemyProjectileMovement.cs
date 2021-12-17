@@ -16,6 +16,7 @@ public class EnemyProjectileMovement : MonoBehaviour
     void Start()
     {
         /*
+         IGNORE FOR NOW
         // determine positions of player and projectile
         Vector2 playerPosition = player.transform.position;
         Vector2 projectilePosition = gameObject.transform.position;
