@@ -39,13 +39,13 @@ public class EnemyMovement : MonoBehaviour
         if (movingLeft)
         {
             // If we hit the boundary, have the enemy switch direction
-            if (transform.position.x < leftEdge[0])
+            if (transform.position.x < leftEdge[0] && grounded)
                 movingLeft = false;
             Move(Direction.left);
         }
         else
         {
-            if (transform.position.x > rightEdge[0])
+            if (transform.position.x > rightEdge[0] && grounded)
                 movingLeft = true;
             Move(Direction.right);
         }

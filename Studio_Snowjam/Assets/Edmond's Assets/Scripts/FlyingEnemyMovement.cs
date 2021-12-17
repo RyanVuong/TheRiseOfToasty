@@ -24,7 +24,7 @@ public class FlyingEnemyMovement : MonoBehaviour
             Chase();
         else
             ReturnStartPoint();
-        Flip();
+        //Flip();
     }
 
     private void Chase()
