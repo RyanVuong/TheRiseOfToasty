@@ -89,6 +89,7 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
+        
         if (justDashed)
         {
             if (originalHorizontal > 0)
@@ -127,6 +128,8 @@ public class PlayerController : MonoBehaviour
             justDashed = false;
             dashDone = false;
         }
+        //float horizontalMove = Input.GetAxisRaw("Horizontal") * speed;
+        GetComponent<Animator>().SetFloat("Speed", Mathf.Abs(rb.velocity.x));
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

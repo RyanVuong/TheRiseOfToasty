@@ -16,10 +16,12 @@ public class Health : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        
         if (startMaxHealth)
         {
             curHealth = maxHealth;
         }
+        GetComponent<Animator>().SetInteger("Health", curHealth);
     }
 
     public ref int CurrentHealth()
@@ -57,11 +59,14 @@ public class Health : MonoBehaviour
 //            powerups.setAttack();
             curHealth = maxHealth;
         } 
+
         // Sets dead if character dies
         else if (curHealth < 1)
         {
             isDead = true;
         }
+
+        GetComponent<Animator>().SetInteger("Health", curHealth);
         // Action
         if (isDead)
         {
