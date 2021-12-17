@@ -20,7 +20,7 @@ public class PlayerController : MonoBehaviour
     private int dashedInAir;
 
     public AudioSource walking;
-
+    Health health;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -29,6 +29,8 @@ public class PlayerController : MonoBehaviour
         justDashed = false;
         dashDone = false;
         dashedInAir = 0;
+        health = gameObject.GetComponent<Health>();
+
     }
 
     void OnMove(InputValue movementVal)
@@ -146,6 +148,9 @@ public class PlayerController : MonoBehaviour
         if (collision.gameObject.tag == "Floor")
         {
             grounded = true;
+        }
+        if(collision.gameObject.tag == "Enemy"){
+            health.Damage(1);
         }
     }
 
