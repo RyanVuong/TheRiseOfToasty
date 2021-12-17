@@ -9,6 +9,8 @@ TagManager:
   - PlayerProjectile
   - Floor
   - Enemy
+  - Undefined
+  - PowerUp
   layers:
   - Default
   - TransparentFX
