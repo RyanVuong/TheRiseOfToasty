@@ -6,25 +6,27 @@ public class FlyingEnemyMovement : MonoBehaviour
 {
     public float speed;
     public bool chase = false;
-    public Transform startingPoint;
+    private Vector3 startingPoint;
     private GameObject player;
 
     // Start is called before the first frame update
     void Start()
     {
+        startingPoint = gameObject.transform.position;
         player = GameObject.FindGameObjectWithTag("Player");
     }
 
     // Update is called once per frame
     void Update()
     {
+        GetComponent<Animator>().SetInteger("Health", GetComponent<Health>().getCurHealth());
         if (player == null)
             return;
         if (chase == true)
             Chase();
         else
             ReturnStartPoint();
-        Flip();
+        //Flip();
     }
 
     private void Chase()
@@ -34,7 +36,7 @@ public class FlyingEnemyMovement : MonoBehaviour
 
     private void ReturnStartPoint()
     {
-        transform.position = Vector2.MoveTowards(transform.position, startingPoint.transform.position, speed * Time.deltaTime);
+        transform.position = Vector2.MoveTowards(transform.position, startingPoint, speed * Time.deltaTime);
     }
     private void Flip()
     {
