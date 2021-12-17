@@ -502,6 +502,7 @@ GameObject:
   - component: {fileID: 981816961}
   - component: {fileID: 981816962}
   - component: {fileID: 981816963}
+  - component: {fileID: 981816964}
   m_Layer: 0
   m_Name: Toasty
   m_TagString: Untagged
@@ -683,6 +684,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectile: {fileID: 6693841691306297379, guid: a69dba145c3ac448b9832f492e25617b, type: 3}
   speed: 5
+--- !u!114 &981816964
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 981816956}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5cf3729be9888c44872bedab6ccf5f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  curHealth: 0
+  maxHealth: 3
+  isNPC: 0
+  isDead: 0
+  toasts:
+  - {fileID: 118672176}
+  - {fileID: 694363908}
+  - {fileID: 1090049828}
 --- !u!1 &1089435298
 GameObject:
   m_ObjectHideFlags: 0
