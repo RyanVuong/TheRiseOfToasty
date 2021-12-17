@@ -6,17 +6,19 @@ public class Health : MonoBehaviour
 {
     [SerializeField] private int curHealth;
     [SerializeField] private int maxHealth = 3;
+    [SerializeField] private bool startMaxHealth = true;
+    [SerializeField] private bool isNPC = true;
     [SerializeField] private bool isDead;
-    [SerializeField] private bool isNPC;
-    
+
     public Image[] toasts;
 
     // Start is called before the first frame update
     void Start()
     {
-        curHealth = maxHealth;
-        isDead = false;
-        isNPC = true;
+        if (startMaxHealth)
+        {
+            curHealth = maxHealth;
+        }
     }
 
     // Update is called once per frame
