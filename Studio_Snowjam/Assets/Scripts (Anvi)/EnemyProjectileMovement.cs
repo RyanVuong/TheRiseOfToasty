@@ -6,9 +6,10 @@ public class EnemyProjectileMovement : MonoBehaviour
 {
     float lifetime = 0f;
     [SerializeField] float maxLifetime = 7f;
-    // [SerializeField] float speed = 5f;
+    [SerializeField] float speed = 5f;
 
-    // [SerializeField] public GameObject player;
+    GameObject player;
+    Vector2 target;
 
     // Start is called before the first frame update
     void Start()
@@ -24,11 +25,18 @@ public class EnemyProjectileMovement : MonoBehaviour
         Rigidbody2D rb = gameObject.GetComponent<Rigidbody2D>();
         rb.AddForce(projectileDirection * speed, ForceMode2D.Impulse);
         */
+
+        player = GameObject.Find("Toasty");
+        target = player.transform.position;
     }
 
     // Update is called once per frame
     void Update()
     {
+        // move projectile
+        float step = speed * Time.deltaTime;
+        transform.position = Vector2.MoveTowards(transform.position, target, step);
+
         lifetime += Time.deltaTime;
         if (lifetime >= maxLifetime)
         {

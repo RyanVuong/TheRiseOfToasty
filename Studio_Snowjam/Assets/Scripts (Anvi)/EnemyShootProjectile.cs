@@ -34,6 +34,7 @@ public class EnemyShootProjectile : MonoBehaviour
         GameObject newProjectile = Instantiate(projectile, gameObject.transform.position, Quaternion.identity);
         Physics2D.IgnoreCollision(newProjectile.GetComponent<Collider2D>(), GetComponent<Collider2D>());
 
+        /*
         // determine positions of player and projectile
         Vector2 playerPosition = player.transform.position;
         Vector2 projectilePosition = newProjectile.transform.position;
@@ -43,5 +44,6 @@ public class EnemyShootProjectile : MonoBehaviour
 
         Rigidbody2D rb = newProjectile.GetComponent<Rigidbody2D>();
         rb.AddForce(projectileDirection * speed, ForceMode2D.Impulse);
+        */
     }
 }
