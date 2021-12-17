@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class powerUps : MonoBehaviour
 {
-    public float multiplier = 1.4f;
     public GameObject pickupEffect;
 
     public Health health;
@@ -22,7 +21,8 @@ public class powerUps : MonoBehaviour
     public void setAttack()
     {
         ref int CH = ref health.CurrentHealth();
-        ref int attack += CH - health.MaxHealth();
+        ref int attack = ref <ScriptableObject>.Attack();
+        attack += CH - health.MaxHealth();
 
     }
 
