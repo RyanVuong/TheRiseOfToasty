@@ -2,12 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class AudioManager : MonoBehaviour
 {
 
     public AudioSource MainLoop;
     public AudioSource GameOver;
     public GameObject gameover;
+
+    
     bool isGameOver;
     // Start is called before the first frame update
     void Start()
