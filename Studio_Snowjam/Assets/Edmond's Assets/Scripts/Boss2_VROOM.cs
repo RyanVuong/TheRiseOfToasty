@@ -59,13 +59,13 @@ public class Boss2_VROOM : StateMachineBehaviour
         if (movingLeft)
         {
             // If we hit the boundary, have the enemy switch direction
-            if (animator.transform.position.x < leftEdge[0])
+            if (animator.transform.position.x < 109)
                 movingLeft = false;
             Move(animator, Direction.left);
         }
         else
         {
-            if (animator.transform.position.x > rightEdge[0])
+            if (animator.transform.position.x > 140)
                 movingLeft = true;
             Move(animator, Direction.right);
         }
