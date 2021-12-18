@@ -11,6 +11,8 @@ public class Health : MonoBehaviour
     [SerializeField] private bool isDead;
 
     public Image[] toasts;
+
+    private static readonly int Health1 = Animator.StringToHash("Health");
     // public powerUps powerups;
 
     // Start is called before the first frame update
@@ -20,7 +22,7 @@ public class Health : MonoBehaviour
         {
             curHealth = maxHealth;
         }
-        GetComponent<Animator>().SetInteger("Health", curHealth);
+        GetComponent<Animator>().SetInteger(Health1, curHealth);
     }
 
     // Update is called once per frame
@@ -55,7 +57,10 @@ public class Health : MonoBehaviour
             isDead = true;
         }
 
-        GetComponent<Animator>().SetInteger("Health", curHealth);
+        // Get health in state machine
+        GetComponent<Animator>().SetInteger(Health1, curHealth);
+        
+        
         // Action
         if (isDead)
         {
@@ -67,7 +72,7 @@ public class Health : MonoBehaviour
                 toasts[0].enabled = false;
                 
                 // Destroys Toasty
-                Destroy(gameObject);
+                // Destroy(gameObject);
                 
                 // Turns on the game over screen
                 GameObject.Find("Canvas").transform.GetChild(0).gameObject.SetActive(true);

@@ -69,3 +69,7 @@ crashlytics-build.properties
 .DS_Store
 
 Studio_Snowjam/UserSettings/EditorUserSettings.asset
+
+Studio_Snowjam/Assets/Scenes/Game Scene.unity~Stashed changes.meta
+
+Studio_Snowjam/mono_crash.1d30df6ee0.0.json
