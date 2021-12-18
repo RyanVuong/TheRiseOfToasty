@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 [System.Serializable]
 
@@ -14,7 +12,7 @@ public class powerUps : MonoBehaviour
         // Deals damage if it hits the player
         if (collision.gameObject.CompareTag("Player"))
         {
-            Debug.Log("pick up");
+            // Debug.Log("pick up");
             collision.gameObject.GetComponent<Health>().Heal(healing);
             Destroy(gameObject);
         }

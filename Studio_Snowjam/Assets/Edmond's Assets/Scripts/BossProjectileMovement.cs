@@ -43,7 +43,7 @@ public class BossProjectileMovement : MonoBehaviour
             collision.gameObject.GetComponent<Health>().Damage(attackDmg);
         }
 
-        if (!collision.gameObject.CompareTag("EnemyProjectile"))
+        if (!collision.gameObject.CompareTag("EnemyProjectile") && !collision.gameObject.CompareTag("PlayerProjectile"))
         {
             Destroy(gameObject);
         }
