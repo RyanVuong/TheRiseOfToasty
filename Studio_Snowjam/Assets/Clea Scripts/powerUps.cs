@@ -16,8 +16,8 @@ public class powerUps : MonoBehaviour
         {
             Debug.Log("pick up");
             collision.gameObject.GetComponent<Health>().Heal(healing);
+            Destroy(gameObject);
         }
-        Destroy(gameObject);
     }
 
     // public void setAttack()
