@@ -315,11 +315,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5cf3729be9888c44872bedab6ccf5f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  curHealth: 3
+  curHealth: 0
   maxHealth: 3
   startMaxHealth: 1
   isNPC: 1
   isDead: 0
+  isHappy: 0
+  isSad: 0
+  isBoss: 0
   toasts: []
 --- !u!114 &555891580792379315
 MonoBehaviour:
