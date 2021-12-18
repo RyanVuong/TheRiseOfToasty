@@ -27,21 +27,10 @@ public class PlayerProjectileMovement : MonoBehaviour
     void OnCollisionEnter2D(Collision2D collision)
     {
         // Deals damage if it hits the player
-        if (collision.gameObject.CompareTag("Enemy") || collision.gameObject.CompareTag("EnemyProjectile"))
+        if (collision.gameObject.CompareTag("Enemy"))
         {
             collision.gameObject.GetComponent<Health>().Damage(attackDmg);
         }
         Destroy(gameObject);
     }
-
-    public int GetAttackDmg()
-    {
-        return attackDmg;
-    }
-    
-    public void SetAttackDmg(int dmg)
-    { 
-        attackDmg = dmg;
-    }
-
 }
