@@ -14,6 +14,9 @@ public class BossTrigger : MonoBehaviour
         {
             Instantiate(boss, gameObject.transform.position, Quaternion.identity);
             count++;
+            
+            // Turns on boss wall
+            GameObject.Find("Grid").transform.GetChild(2).gameObject.SetActive(true);
         }
     }
 }
