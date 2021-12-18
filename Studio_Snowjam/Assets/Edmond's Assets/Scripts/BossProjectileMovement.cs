@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class BossProjectileMovement : MonoBehaviour
@@ -7,6 +5,7 @@ public class BossProjectileMovement : MonoBehaviour
     float lifetime = 0f;
     [SerializeField] float maxLifetime = 15f;
     [SerializeField] float speed = 4f;
+    [SerializeField] private int attackDmg = 1;
     GameObject player;
     Vector3 target;
 
@@ -38,7 +37,16 @@ public class BossProjectileMovement : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag != "EnemyProjectile")
+        // Deals damage if it hits the player
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            collision.gameObject.GetComponent<Health>().Damage(attackDmg);
+        }
+
+        if (!collision.gameObject.CompareTag("EnemyProjectile") && !collision.gameObject.CompareTag("PlayerProjectile"))
+        {
             Destroy(gameObject);
+        }
+            
     }
 }

@@ -1315,6 +1315,7 @@ MonoBehaviour:
   speed: 10
   jumpHeight: 10
   dashFactor: 40
+  walking: {fileID: 0}
 --- !u!114 &981816962
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1359,6 +1360,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectile: {fileID: 6693841691306297379, guid: a69dba145c3ac448b9832f492e25617b, type: 3}
   speed: 5
+  PlayerFire: {fileID: 0}
 --- !u!114 &981816964
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2017,7 +2019,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 100}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &2024807219
@@ -2171,6 +2173,7 @@ MonoBehaviour:
   desiredDistance: 15
   projectile: {fileID: 2234868549842379512, guid: 8c3c69ab79fde415caa8e9262e5b77c9, type: 3}
   player: {fileID: 981816956}
+  GunSounds: {fileID: 0}
 --- !u!114 &2024807225
 MonoBehaviour:
   m_ObjectHideFlags: 0

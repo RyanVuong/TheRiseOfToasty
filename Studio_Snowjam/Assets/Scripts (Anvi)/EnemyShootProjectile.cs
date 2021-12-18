@@ -47,13 +47,17 @@ public class EnemyShootProjectile : MonoBehaviour
 
     void shootProjectile()
     {
-        GameObject newProjectile = Instantiate(projectile, gameObject.transform.position, Quaternion.identity);
-        Physics2D.IgnoreCollision(newProjectile.GetComponent<Collider2D>(), GetComponent<Collider2D>());
-
-        if (!GunSounds.isPlaying)
+        if (gameObject.GetComponent<Health>().getCurHealth() != 1)
         {
-            GunSounds.Play();
+            GameObject newProjectile = Instantiate(projectile, gameObject.transform.position, Quaternion.identity);
+            Physics2D.IgnoreCollision(newProjectile.GetComponent<Collider2D>(), GetComponent<Collider2D>());
+    
+            if (!GunSounds.isPlaying)
+            {
+                GunSounds.Play();
+            }
         }
+
         /*
         // determine positions of player and projectile
         Vector2 playerPosition = player.transform.position;

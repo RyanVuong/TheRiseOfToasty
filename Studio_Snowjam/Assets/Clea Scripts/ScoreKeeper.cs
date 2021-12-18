@@ -1,12 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class ScoreKeeper : MonoBehaviour
 {
-
-    public static int scoreAmount;
+    [SerializeField] private int scoreAmount;
     private Text scoreText;
 
     // Start is called before the first frame update
@@ -19,6 +16,16 @@ public class ScoreKeeper : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        scoreText.text = "Score:" + scoreAmount;
+        scoreText.text = "Score: " + scoreAmount;
+    }
+    
+    public void AddScore(int score)
+    {
+        scoreAmount += score;
+    }
+
+    public void SubScore(int score)
+    {
+        AddScore(-score);
     }
 }

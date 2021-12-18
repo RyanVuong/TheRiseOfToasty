@@ -20,7 +20,7 @@ public class PlayerController : MonoBehaviour
     private int dashedInAir;
 
     public AudioSource walking;
-
+    Health health;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -29,6 +29,8 @@ public class PlayerController : MonoBehaviour
         justDashed = false;
         dashDone = false;
         dashedInAir = 0;
+        health = gameObject.GetComponent<Health>();
+
     }
 
     void OnMove(InputValue movementVal)
@@ -101,6 +103,7 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
+        
         if (justDashed)
         {
             if (originalHorizontal > 0)
@@ -139,22 +142,25 @@ public class PlayerController : MonoBehaviour
             justDashed = false;
             dashDone = false;
         }
+        //float horizontalMove = Input.GetAxisRaw("Horizontal") * speed;
+        GetComponent<Animator>().SetFloat("Speed", Mathf.Abs(rb.velocity.x));
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Floor")
+        if (collision.gameObject.CompareTag("Floor"))
         {
             grounded = true;
+        }
+        if(collision.gameObject.CompareTag("Enemy")){
+            health.Damage(1);
         }
     }
 
     private void OnCollisionExit2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Floor")
-        {
-            grounded = false;
-            dashedInAir = 0;
-        }
+        if (!collision.gameObject.CompareTag("Floor")) return;
+        grounded = false;
+        dashedInAir = 0;
     }
 }
