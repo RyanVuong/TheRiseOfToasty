@@ -68,7 +68,6 @@ public class Health : MonoBehaviour
 
         if (isNPC)
         {
-            // Dont kill them when they are happy!
             if (curHealth == 2)
             {
                 GameObject.Find("Canvas").transform.GetChild(1).gameObject.GetComponent<ScoreKeeper>().AddScore(50);
