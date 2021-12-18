@@ -7,22 +7,23 @@ public class AudioManager : MonoBehaviour
 
     public AudioSource MainLoop;
     public AudioSource GameOver;
-    public bool isGameOver;
+    public GameObject gameover;
+    bool isGameOver;
     // Start is called before the first frame update
     void Start()
     {
-        isGameOver = false;
+        gameover = GameObject.Find("Canvas").transform.GetChild(0).gameObject;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (!isGameOver && !MainLoop.isPlaying)
+        if (!gameover.activeInHierarchy && !MainLoop.isPlaying)
         {
             GameOver.Stop();
             MainLoop.Play();
         }
-        if (isGameOver && !GameOver.isPlaying)
+        if (gameover.activeInHierarchy && !GameOver.isPlaying)
         {
             MainLoop.Stop();
             GameOver.Play();
