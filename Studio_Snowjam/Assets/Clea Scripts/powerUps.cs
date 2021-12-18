@@ -16,8 +16,9 @@ public class powerUps : MonoBehaviour
         {
             Debug.Log("pick up");
             collision.gameObject.GetComponent<Health>().Heal(healing);
+            Destroy(gameObject);
         }
-        Destroy(gameObject);
+        
     }
 
     // If curHealth = maxHealth then add multiplyer to score
