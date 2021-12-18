@@ -1,35 +1,31 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class ScoreKeeper : MonoBehaviour
 {
-   [SerializeField] private int curScore;
-   private Text scoreText;
-
-    public void addScore(int score)
-    {
-        curScore += score;
-    }
-
-    public void subScore(int score)
-    {
-        addScore(-score);
-    }
-
-    
+    [SerializeField] private int scoreAmount;
+    private Text scoreText;
 
     // Start is called before the first frame update
     void Start()
     {
         scoreText = GetComponent<Text>();
-        curScore = 0;
+        scoreAmount = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
-        scoreText.text = "Score: " + curScore;
+        scoreText.text = "Score: " + scoreAmount;
+    }
+    
+    public void AddScore(int score)
+    {
+        scoreAmount += score;
+    }
+
+    public void SubScore(int score)
+    {
+        AddScore(-score);
     }
 }

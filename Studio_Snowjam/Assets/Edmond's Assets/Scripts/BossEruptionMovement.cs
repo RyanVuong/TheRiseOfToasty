@@ -7,6 +7,7 @@ public class BossEruptionMovement : MonoBehaviour
     float lifetime = 0f;
     [SerializeField] float maxLifetime = 12f;
     [SerializeField] float speed = 8f;
+    [SerializeField] private int attackDmg = 1;
     GameObject player;
     Vector2 target;
 
@@ -53,7 +54,14 @@ public class BossEruptionMovement : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag != "EnemyProjectile")
+        // Deals damage if it hits the player
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            collision.gameObject.GetComponent<Health>().Damage(attackDmg);
+        }
+        if (!collision.gameObject.CompareTag("EnemyProjectile") && !collision.gameObject.CompareTag("PlayerProjectile"))
+        {
             Destroy(gameObject);
+        }
     }
 }

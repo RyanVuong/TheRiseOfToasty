@@ -12,10 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef87269943a8aeb4ca21f8ed53786042, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Vroom: {fileID: 0}
-  speed: 6
+  speed: 10
   canJump: 0
-  jumpHeight: 5
+  jumpHeight: 6
   leftEdge: {x: -10, y: 0, z: 0}
   rightEdge: {x: 10, y: 0, z: 0}
 --- !u!1101 &-8888791314380090464
