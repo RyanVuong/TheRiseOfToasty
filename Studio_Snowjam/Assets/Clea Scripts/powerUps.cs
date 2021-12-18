@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 [System.Serializable]
 
@@ -14,11 +12,10 @@ public class powerUps : MonoBehaviour
         // heals player 1hp on pickup
         if (collision.gameObject.CompareTag("Player"))
         {
-            Debug.Log("pick up");
+            // Debug.Log("pick up");
             collision.gameObject.GetComponent<Health>().Heal(healing);
             Destroy(gameObject);
         }
-        
     }
 
     // If curHealth = maxHealth then add multiplyer to score

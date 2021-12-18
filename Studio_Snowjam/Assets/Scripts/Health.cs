@@ -1,4 +1,7 @@
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Analytics;
+using UnityEngine.SocialPlatforms;
 using UnityEngine.UI;
 [System.Serializable]
 
@@ -9,6 +12,9 @@ public class Health : MonoBehaviour
     [SerializeField] private bool startMaxHealth = true;
     [SerializeField] private bool isNPC = true;
     [SerializeField] private bool isDead;
+    [SerializeField] private bool isHappy;
+    [SerializeField] private bool isSad;
+    [SerializeField] private bool isBoss;
 
     public Image[] toasts;
 
@@ -47,7 +53,6 @@ public class Health : MonoBehaviour
         // Prevents health over maximum
         if (curHealth > maxHealth)
         {
-            // powerups.setAttack();
             curHealth = maxHealth;
         } 
 
@@ -59,13 +64,28 @@ public class Health : MonoBehaviour
 
         // Get health in state machine
         GetComponent<Animator>().SetInteger(Health1, curHealth);
-        
-        
+
+
+        if (isNPC)
+        {
+            // Dont kill them when they are happy!
+            if (curHealth == 2)
+            {
+                GameObject.Find("Canvas").transform.GetChild(1).gameObject.GetComponent<ScoreKeeper>().AddScore(50);
+            } 
+            else if (!isBoss && curHealth == 0)
+            {
+                GameObject.Find("Canvas").transform.GetChild(1).gameObject.GetComponent<ScoreKeeper>().SubScore(100);
+            }
+        }
+
+
+
+
         // Action
         if (isDead)
         {
-            Destroy(gameObject);
-            
+            // player
             if (!isNPC)
             {
                 // Remove last toast icon on screen
@@ -76,6 +96,21 @@ public class Health : MonoBehaviour
                 
                 // Turns on the game over screen
                 GameObject.Find("Canvas").transform.GetChild(0).gameObject.SetActive(true);
+            }
+            
+            // boss
+            else if (isBoss)
+            {
+                Destroy(gameObject);
+                
+                // Turns on the game over screen
+                GameObject.Find("Canvas").transform.GetChild(0).gameObject.SetActive(true);
+            }
+            
+            // regular npcs
+            else
+            {
+                Destroy(gameObject);
             }
         }
     }
