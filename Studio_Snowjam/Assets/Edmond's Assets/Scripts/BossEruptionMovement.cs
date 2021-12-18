@@ -53,7 +53,9 @@ public class BossEruptionMovement : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag != "EnemyProjectile")
+        if (!collision.gameObject.CompareTag("EnemyProjectile") && !collision.gameObject.CompareTag("PlayerProjectile"))
+        {
             Destroy(gameObject);
+        }
     }
 }
