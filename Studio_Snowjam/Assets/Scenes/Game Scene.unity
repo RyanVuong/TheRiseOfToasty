@@ -1198,7 +1198,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-<<<<<<< Updated upstream
   m_GameObject: {fileID: 591523225}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 53.43352, y: 5.9131126, z: 0.9280485}
@@ -1217,27 +1216,6 @@ Transform:
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &618891057
-=======
---- !u!61 &764963864 stripped
-BoxCollider2D:
-  m_CorrespondingSourceObject: {fileID: 2812296472607083199, guid: 33d19ba0d9541ed4e8f5ea7851ca9eff, type: 3}
-  m_PrefabInstance: {fileID: 2812296472440575979}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &764963867
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 764963857}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 590221142fc3ad44bbe999dccb0ebaec, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 764963864}
---- !u!1 &822655406
->>>>>>> Stashed changes
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
